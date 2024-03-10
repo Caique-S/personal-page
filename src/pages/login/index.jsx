@@ -21,7 +21,6 @@ export const Login = () => {
   };
 
   function handleGoogleAuth(){
-
   }
 
   return (
