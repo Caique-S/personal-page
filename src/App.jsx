@@ -9,7 +9,15 @@ function App() {
     {
       path:"/",
       element: <Login/>
-    }
+    },
+    {
+      path:"/home",
+      element: <Home/>
+    },
+    {
+      path:"/register",
+      element: <Register/>
+    },
   ])
   return (
   <RouterProvider router={router}>

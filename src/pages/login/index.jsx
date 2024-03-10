@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './styles.css'
-import { GoogleProvider, signInWithPopup } from 'firebase/auth'
+// import { GoogleProvider, signInWithPopup } from 'firebase/auth'
 
 export const Login = () => {
   const [username, setUsername] = useState('');
