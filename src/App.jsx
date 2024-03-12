@@ -1,8 +1,8 @@
-import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './pages/home';
 import { Register } from './pages/register';
 import { Login } from './pages/login';
+import './styles/global.scss'
 
 function App() {
   const router = createBrowserRouter([
