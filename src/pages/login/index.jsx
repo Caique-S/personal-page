@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./styles.scss"
 import Logo from "../../assets/logo.png"
+import { Link } from "react-router-dom";
 // import { GoogleProvider, signInWithPopup } from 'firebase/auth'
 
 export const Login = () => {
@@ -24,7 +25,7 @@ export const Login = () => {
   function handleGoogleAuth() {}
 
   return (
-    <div className="container" >
+    <div className="login-container" >
       <div className="loginLogo">
         <img src={Logo} alt="Logo da Code Craft" />
       </div>
@@ -50,10 +51,13 @@ export const Login = () => {
         <button className="loginUser" type="submit">Login</button>
       </form>
       <p>
-        Não tem uma conta? <a href="/registro">Registre-se</a>
+        Não tem uma conta? <Link to="/register">Registre-se</Link>
       </p>
       <button className="loginGoogle" type="submit" onClick={handleGoogleAuth}>
           Entrar com o Google
+      </button>
+      <button className="loginMicrosoft" type="submit" onClick={handleGoogleAuth}>
+          Entrar com o Microsoft
       </button>
     </div>
   );

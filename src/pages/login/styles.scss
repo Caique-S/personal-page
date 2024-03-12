@@ -1,4 +1,4 @@
-.container {
+.login-container {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -11,6 +11,11 @@
       width: 150px;
       height: 150px;
     }
+  
+
+  form {
+    display: flex;
+    flex-direction: column;
   }
   
   h2 {
@@ -21,15 +26,20 @@
   label {
     color: #5c5c5c;
   }
-  
   input[type="text"],
   input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 0.1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-radius: 4px;
     box-sizing: border-box;
+
+    &:focus {
+      border-color: #e76800;
+      border: 1px solid #e76800;
+      outline: none;
+    }
   }
   
   button {
@@ -40,6 +50,14 @@
     padding: 10px 20px;
     cursor: pointer;
     margin-bottom: 10px;
+
+    &.loginGoogle {
+      margin-top: 2vh;
+      width: 55vw;
+    }
+    &.loginMicrosoft {
+      width: 55vw;
+    }
   }
   
   button:hover {
@@ -50,8 +68,4 @@
     color: #F87700;
     text-decoration: none;
   }
-  
-  a:hover {
-    color: #e76800;
-  }
-  
+}
