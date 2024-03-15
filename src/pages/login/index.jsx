@@ -54,10 +54,10 @@ export const Login = () => {
         Não tem uma conta? <Link to="/register">Registre-se</Link>
       </p>
       <button className="loginGoogle" type="submit" onClick={handleGoogleAuth}>
-          Entrar com o Google
+          Entrar com Google
       </button>
       <button className="loginMicrosoft" type="submit" onClick={handleGoogleAuth}>
-          Entrar com o Microsoft
+          Entrar com Microsoft
       </button>
     </div>
   );

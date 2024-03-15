@@ -18,10 +18,10 @@
       border: 1px solid #dfdfdf;
       border-radius: 4px;
       box-sizing: border-box;
-      color: #a0a0a0;
+      color:var(--text);
 
       &:focus {
-        border-color: #e76800;
+        border-color: var(--primary);
         border: 1px solid #e76800;
         outline: none;
       }
@@ -29,7 +29,7 @@
 
     button {
       margin-top: 3vh;
-      background-color: #f87700;
+      background-color: var(--primary);
       color: #ffffff;
       border: none;
       border-radius: 4px;

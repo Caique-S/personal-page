@@ -6,6 +6,15 @@ export const Register = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [userRepeatPassword, setuserRepeatPassword] = useState("");
+    // const [disableButton, setDisableButton] = useState(true)
+
+    function validarSenhas () {
+       if(userPassword === userRepeatPassword){
+        console.log("As senhas são iguais")
+       }else{
+        console.log("Senhas diferentes")
+       }
+    }
   
     const handleUsernameChange = (e) => {
         setUserName(e.target.value);
@@ -25,6 +34,7 @@ export const Register = () => {
   
     const handleRegisterSubmit = (e) => {
       e.preventDefault();
+      validarSenhas()
       console.log("Username:", userName);
       console.log("Password:", userPassword);
     };
