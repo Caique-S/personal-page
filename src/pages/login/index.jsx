@@ -16,13 +16,17 @@ export const Login = () => {
     setPassword(e.target.value);
   };
 
+
+  const handleGoogleAuth = () => {
+
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Username:", username);
     console.log("Password:", password);
   };
 
-  function handleGoogleAuth() {}
 
   return (
     <div className="login-container" >

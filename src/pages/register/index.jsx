@@ -1,4 +1,5 @@
 import React, {useState} from "react"; 
+import {Link} from "react-router-dom"
 import "./styles.scss"
 
 export const Register = () => {
@@ -6,16 +7,8 @@ export const Register = () => {
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [userRepeatPassword, setuserRepeatPassword] = useState("");
-    // const [disableButton, setDisableButton] = useState(true)
+    const [alertPassword, setAlertPassword] = useState(true)
 
-    function validarSenhas () {
-       if(userPassword === userRepeatPassword){
-        console.log("As senhas são iguais")
-       }else{
-        console.log("Senhas diferentes")
-       }
-    }
-  
     const handleUsernameChange = (e) => {
         setUserName(e.target.value);
     };
@@ -30,17 +23,28 @@ export const Register = () => {
 
     const handleUserRepeatPasswordChange = (e) => {
         setuserRepeatPassword(e.target.value);
+        if(userPassword === userRepeatPassword){
+            setAlertPassword(true)
+           }else{
+            setAlertPassword(false)     
+          }
     };
+
+    const passwordCheck = () => {
+        if(userPassword === userRepeatPassword){
+            setAlertPassword(true)
+           }else{
+            setAlertPassword(false)     
+          }
+    }
   
     const handleRegisterSubmit = (e) => {
       e.preventDefault();
-      validarSenhas()
-      console.log("Username:", userName);
-      console.log("Password:", userPassword);
     };
 
     return(
         <div className="register-container">
+            <h2>Registre-se</h2>
             <form onSubmit={handleRegisterSubmit}>
                 <div>
                     <label htmlFor="userName">Nome</label>
@@ -75,9 +79,12 @@ export const Register = () => {
                     type="password"
                     id="userRepeatPassword"
                     value={userRepeatPassword}
-                    onChange={handleUserRepeatPasswordChange}>
+                    onChange={handleUserRepeatPasswordChange}
+                    onKeyUp={passwordCheck}>
                     </input>
                 </div>
+                {alertPassword === false && (<p>As Senhas não conferem</p>)}
+                <p>Já tem uma conta ? <Link to="/">Acesse sua conta</Link></p>
                 <button className="registerUser" type="submit">Registrar</button>
             </form>
         </div>
