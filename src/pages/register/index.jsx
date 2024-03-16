@@ -1,6 +1,8 @@
 import React, {useState} from "react"; 
 import {Link} from "react-router-dom"
 import "./styles.scss"
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {auth} from "../../services/firebase";
 
 export const Register = () => {
     const [userName, setUserName] = useState("");
@@ -8,6 +10,14 @@ export const Register = () => {
     const [userPassword, setUserPassword] = useState("");
     const [userRepeatPassword, setuserRepeatPassword] = useState("");
     const [alertPassword, setAlertPassword] = useState(true)
+
+    const [createUserWithEmailAndPassword ,user ,loading ,error] = useCreateUserWithEmailAndPassword(auth)
+
+    if(loading){
+        return(
+            <h2 style={{flex:1, justifyContent:"center",alignItems:"center"}}>Cadastrando...</h2>
+        )
+    }
 
     const handleUsernameChange = (e) => {
         setUserName(e.target.value);
@@ -40,6 +50,11 @@ export const Register = () => {
   
     const handleRegisterSubmit = (e) => {
       e.preventDefault();
+      if(alertPassword === true){
+          createUserWithEmailAndPassword(userName,userPassword)
+      }else{
+        alert("Verifique as senhas digitadas")
+      }
     };
 
     return(

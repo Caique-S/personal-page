@@ -4,9 +4,12 @@ import Logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
 // import { GoogleProvider, signInWithPopup } from 'firebase/auth'
 
+
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -23,8 +26,7 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password);
+    
   };
 
 
