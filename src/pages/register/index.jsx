@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Link} from "react-router-dom"
 import "./styles.scss"
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import {auth} from "../../services/firebase";
+import { auth } from "../../services/firebase";
 
 export const Register = () => {
     const [userName, setUserName] = useState("");
@@ -51,7 +51,7 @@ export const Register = () => {
     const handleRegisterSubmit = (e) => {
       e.preventDefault();
       if(alertPassword === true){
-          createUserWithEmailAndPassword(userName,userPassword)
+         createUserWithEmailAndPassword(userEmail,userPassword)
       }else{
         alert("Verifique as senhas digitadas")
       }
@@ -101,6 +101,7 @@ export const Register = () => {
                 {alertPassword === false && (<p>As Senhas não conferem</p>)}
                 <p>Já tem uma conta ? <Link to="/">Acesse sua conta</Link></p>
                 <button className="registerUser" type="submit">Registrar</button>
+                {userName},{userPassword}
             </form>
         </div>
     )
