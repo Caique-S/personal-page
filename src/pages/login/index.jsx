@@ -2,12 +2,24 @@ import React, { useState } from "react";
 import "./styles.scss"
 import Logo from "../../assets/logo.png"
 import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import {auth} from "../../services/firebase"
 // import { GoogleProvider, signInWithPopup } from 'firebase/auth'
-
 
 export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+  if(user){
+    console.log(user)
+  }
 
   
 
@@ -26,6 +38,7 @@ export const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signInWithEmailAndPassword(username,password)
     
   };
 
